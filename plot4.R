@@ -1,19 +1,31 @@
+#Author : Vimal Kumar M
+#Date   : 07.02.2015
+#File   : plot4.R
+#Purpose: 1. Load the required data into R Environment
+#         2. Create a PNG file name Plot.png using plot funtions for different plots in single Image
+
 # Load data
-source('scripts/load-power-data.R')
+source('load_data.R');
 
 # Open device
-png(filename='plots/plot4.png')
+png(filename='plots/plot4.png');
 
 ## Make plots
-par(mfrow=c(2,2))
+par(mfrow=c(2,2));
 
 # Top left
-plot(power.df$date.time, power.df$Global_active_power,
-     ylab='Global Active Power', xlab='', type='l')
+plot(power.df$date.time, 
+     power.df$Global_active_power,
+     ylab='Global Active Power', 
+     xlab='', 
+     type='l');
 
 # Top right
-plot(power.df$date.time, power.df$Voltage,
-     xlab='datetime', ylab='Voltage', type='l')
+plot(power.df$date.time, 
+     power.df$Voltage,
+     xlab='datetime', 
+     ylab='Voltage', 
+     type='l');
 
 # Bottom left
 plot(power.df$date.time, power.df$Sub_metering_1, type='l',
