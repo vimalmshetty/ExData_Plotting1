@@ -10,17 +10,17 @@
 
 library(lubridate)
 
-#check if 'power-data.rds' exist is pwd.
-if (file.exists('power-data.rds')) {
+#check if 'power_data.rds' exist is pwd.
+if (file.exists('power_data.rds')) {
   #if file exists load in to R.
-  power.df <- readRDS('power-data.rds');
+  power.df <- readRDS('power_data.rds');
 } else {
   #if file doesn't exist download the file from the URL
   download.file(paste0('https://d396qusza40orc.cloudfront.net/',
                        'exdata%2Fdata%2Fhousehold_power_consumption.zip'),
-               destfile='raw-power-data.zip');
+               destfile='raw_power_data.zip');
   #Unzip the folder
-  unzip('raw-power-data.zip');
+  unzip('raw_power_data.zip');
   
   # Read data into a table with appropriate classes
   power.df <- read.table('household_power_consumption.txt', header=TRUE,
@@ -44,5 +44,5 @@ if (file.exists('power-data.rds')) {
   power.df$date.time <- power.df$Date + power.df$Time;
   
   # Save file in RDS format for furthur use
-  saveRDS(power.df, file='power-data.rds');
+  saveRDS(power.df, file='power_data.rds');
 }
